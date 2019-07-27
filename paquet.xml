@@ -1,0 +1,26 @@
+<paquet
+	prefix="tri_par_rubrique"
+	categorie="navigation"
+	version="1.0.0"
+	etat="dev"
+	compatibilite="[3.2.0;3.2.*]"
+	logo="prive/themes/spip/images/tri_par_rubrique-32.png"
+	documentation=""
+	schema="1.0.0"
+>
+	<nom>Tri des articles par rubrique</nom>
+
+	<auteur>nicod_</auteur>
+	<licence>GNU/GPL</licence>
+
+	<utilise nom="rang" />
+	
+	<pipeline nom="autoriser" inclure="tri_par_rubrique_autorisations.php"/>
+	<pipeline nom="declarer_tables_principales" inclure="tri_par_rubrique_administrations.php"/>
+	<pipeline nom="declarer_tables_objets_sql" inclure="tri_par_rubrique_administrations.php"/>
+
+	<pipeline nom="formulaire_traiter" inclure="tri_par_rubrique_pipelines.php"/>
+	<pipeline nom="formulaire_fond"  inclure="tri_par_rubrique_pipelines.php" />
+	<pipeline nom="affiche_milieu"  inclure="tri_par_rubrique_pipelines.php" />
+
+</paquet>

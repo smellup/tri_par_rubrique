@@ -1,0 +1,36 @@
+<div class="formulaire_spip formulaire_configurer formulaire_#FORM">
+
+	<h3 class="titrem"><:tri_par_rubrique:cfg_titre_parametrages:></h3>
+
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+	<form method="post" action="#ENV{action}">
+	<div class="editer-groupe">
+		#ACTION_FORMULAIRE
+		
+		[(#SAISIE{case,appliquer_tri_global,label_case=<:tri_par_rubrique:appliquer_tri_global:/>})]
+		
+		<div class="js-tri-global">
+		<INCLURE{fond=prive/objets/editer/rubrique-tri-articles,titre=''}>
+		</div>
+		
+		<p class="boutons">
+			<button type="submit" class="submit"><:bouton_enregistrer:></button>
+		</p>
+	</div>
+	</form>
+</div>
+
+<style type="text/css">
+	.js-tri-global {
+		display: none;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+	    $('#champ_appliquer_tri_global').on('click',function(){
+	        $('.js-tri-global').toggle('fast');
+		})
+	});
+</script>
