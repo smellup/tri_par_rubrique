@@ -29,8 +29,15 @@
 </style>
 <script>
 	$(document).ready(function(){
-	    $('#champ_appliquer_tri_global').on('click',function(){
-	        $('.js-tri-global').toggle('fast');
-		})
+	    var $caseTri = $('#champ_appliquer_tri_global');
+	    var $jsTri = $('.js-tri-global');
+        $caseTri.on('click',function(){
+            $jsTri.toggle('fast');
+		});
+		if($caseTri.attr('checked')) {
+            $jsTri.show();
+		} else {
+            $jsTri.hide();
+		}
 	});
 </script>

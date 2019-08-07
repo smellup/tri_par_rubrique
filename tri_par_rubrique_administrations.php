@@ -68,9 +68,10 @@ function tri_par_rubrique_upgrade($nom_meta_base_version, $version_cible) {
 function tri_par_rubrique_vider_tables($nom_meta_base_version) {
 	include_spip('inc/meta');
 	include_spip('base/abstract_sql');
+	
 	sql_alter("TABLE spip_rubriques DROP trirub_articles");
 	sql_alter("TABLE spip_rubriques DROP trirub_articles_inverse");
-	effacer_meta($nom_meta_base_version);
-
+	
+	effacer_config('tri_par_rubrique');
 	effacer_meta($nom_meta_base_version);
 }

@@ -51,8 +51,6 @@ function tri_par_rubrique_formulaire_traiter($flux) {
 			
 		}
 		$flux['data']['message_ok'] = _T('tri_par_rubrique:tri_global_applique');
-		ecrire_config('tri_par_rubrique/appliquer_tri_global','');
-		set_request('appliquer_tri_global','');
 	}	
 	
 	return $flux;

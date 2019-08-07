@@ -1,5 +1,8 @@
 <div class="editer-groupe">
-	#SET{name,trirub_articles}#SET{obli,''}#SET{defaut,'date'}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+	#SET{name,trirub_articles} 
+	#SET{obli,''} 
+	#SET{defaut,#CONFIG{tri_par_rubrique/trirub_articles,date}} 
+	#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
 	<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">[
 		<span class='erreur_message'>(#GET{erreurs})</span>
 		]
@@ -38,7 +41,10 @@
 		]
 		</div>
 	</div>	
-	#SET{name,trirub_articles_inverse}#SET{obli,''}#SET{defaut,'1'}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+	#SET{name,trirub_articles_inverse}
+	#SET{obli,''}
+	#SET{defaut,#CONFIG{tri_par_rubrique/trirub_articles_inverse,1}}
+	#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
 	<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">[
 		<span class='erreur_message'>(#GET{erreurs})</span>
 		]
