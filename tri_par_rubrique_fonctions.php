@@ -25,8 +25,8 @@ function critere_tri_rubrique($idb, &$boucles, $crit) {
 	if($boucle->id_table != 'articles'){
 		return (array('zbug_tri_rubrique_sur_articles_uniquement'));
 	}
-	$tri = 'sql_getfetsel(\'trirub_articles\',\'spip_rubriques\',\'id_rubrique = \'.$Pile[0][\'id_rubrique\'])';
-	$inverse = '(sql_getfetsel(\'trirub_articles_inverse\',\'spip_rubriques\',\'id_rubrique = \'.$Pile[0][\'id_rubrique\']) ? " DESC" : "")';
+	$tri = '$Pile[0][\'id_rubrique\'] ? sql_getfetsel(\'trirub_articles\',\'spip_rubriques\',\'id_rubrique = \'.$Pile[0][\'id_rubrique\']) : ""';
+	$inverse = '$Pile[0][\'id_rubrique\'] ? (sql_getfetsel(\'trirub_articles_inverse\',\'spip_rubriques\',\'id_rubrique = \'.$Pile[0][\'id_rubrique\']) ? " DESC" : "") : ""';
 	
 	$boucle->order[] = $tri.'.'.$inverse;	
 }
