@@ -1,7 +1,7 @@
 <paquet
 	prefix="tri_par_rubrique"
 	categorie="navigation"
-	version="1.2.0"
+	version="1.2.1"
 	etat="test"
 	compatibilite="[3.2.0;3.2.*]"
 	logo="prive/themes/spip/images/tri_par_rubrique-32.png"

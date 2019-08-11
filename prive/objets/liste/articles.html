@@ -11,7 +11,7 @@
 		#INFO_TRIRUB_ARTICLES{rubrique,#ID_RUBRIQUE},#GET{senstri}
 	}})]
 	[(#INFO_TRIRUB_ARTICLES{rubrique,#ID_RUBRIQUE}|setenv{par})]
-	#SET{activer_rang, #VAL{articles}|in_array{#RANG_LISTE_OBJETS}|et{#INFO_TRIRUB_ARTICLES{rubrique,#ID_RUBRIQUE}|=={rang}} }
+	#SET{activer_rang, #VAL{articles}|in_array{#RANG_LISTE_OBJETS}|et{#AUTORISER{publierdans,rubrique,#ENV{id_rubrique}}}|et{#INFO_TRIRUB_ARTICLES{rubrique,#ID_RUBRIQUE}|=={rang}} }
 ]
 <B_liste_art>
 #ANCRE_PAGINATION
