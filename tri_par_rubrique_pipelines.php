@@ -40,7 +40,7 @@ function tri_par_rubrique_formulaire_fond($flux) {
  */
 function tri_par_rubrique_formulaire_traiter($flux) {
 	if ($flux['args']['form'] == 'configurer_tri_par_rubrique') {
-		if(_request('appliquer_tri_global')) {
+		if(_request('appliquer_tri_global') && _request('trirub_articles')) {
 			sql_updateq(
 				'spip_rubriques',
 				array(
@@ -48,9 +48,10 @@ function tri_par_rubrique_formulaire_traiter($flux) {
 					'trirub_articles_inverse' => _request('trirub_articles_inverse'),
 				)
 			);
-			
+			$flux['data']['message_ok'] = _T('tri_par_rubrique:tri_global_applique');
+		} else {
+			$flux['data']['message_ok'] = _T('tri_par_rubrique:aucun_changement');
 		}
-		$flux['data']['message_ok'] = _T('tri_par_rubrique:tri_global_applique');
 	}	
 	
 	return $flux;

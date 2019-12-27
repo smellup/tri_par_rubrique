@@ -9,6 +9,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// A
 	'appliquer_tri_global' => 'Appliquer un tri à toutes les rubriques du site',
+	'aucun_changement' => 'Aucun changement appliqué.',
 	
 	// C
 	'cfg_titre_parametrages' => 'Paramétrages',
@@ -17,7 +18,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// T
 	'tri_par_rubrique_titre' => 'Tri des articles par rubrique',
 	'tri_sens_inverse' => 'Trier en sens inverse',
-	'tri_articles_par' => 'Trier les articles par :',
+	'tri_articles_par' => 'Trier les articles :',
 	'tri_articles_defaut' => 'Par défaut',
 	'tri_articles_date' => 'Par date de publication',
 	'tri_articles_id_article' => 'Par numéro d\'article (identifiant)',
