@@ -14,6 +14,29 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 /**
+ * Génère la liste des critères de tri d'article utilisables sur les rubriques
+ * @return array
+ */
+function filtre_tri_par_rubrique_criteres_dist() {
+	$criteres = array(
+		'date'       => _T('tri_par_rubrique:tri_articles_date'),
+		'maj'        => _T('tri_par_rubrique:tri_articles_maj'),
+		'titre'      => _T('tri_par_rubrique:tri_articles_titre'),
+		'num titre'  => _T('tri_par_rubrique:tri_articles_num_titre'),
+		'id_article' => _T('tri_par_rubrique:tri_articles_id_article'),
+	);
+	if(
+		test_plugin_actif('rang') 
+		&& function_exists('rang_liste_objets') 
+		&& in_array('articles', rang_liste_objets())
+	){
+		$criteres['rang'] = _T('tri_par_rubrique:tri_articles_rang');
+	}
+	
+	return $criteres;
+}
+
+/**
  * Critère tri_rubrique, qui affiche les articles selon le tri défini sur la rubrique dans l'espace privé
  * @param $idb
  * @param $boucles

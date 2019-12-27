@@ -1,59 +1,20 @@
 <div class="editer-groupe">
-	#SET{name,trirub_articles} 
-	#SET{obli,''} 
-	#SET{defaut,#CONFIG{tri_par_rubrique/trirub_articles,date}} 
-	#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
-	<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">[
-		<span class='erreur_message'>(#GET{erreurs})</span>
-		]
-		<p><:tri_par_rubrique:tri_articles_par:></p>
-		<div class="choix">
-			#SET{val,'date'}
-			<input type="radio" name="#GET{name}" class="checkbox" id="#GET{name}_#GET{val}" value="#GET{val}" aria-describedby="#GET{name}_explication" [(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
-			<label for="#GET{name}_#GET{val}"><:tri_par_rubrique:tri_articles_date:></label>
-		</div>
-		<div class="choix">
-			#SET{val,'maj'}
-			<input type="radio" name="#GET{name}" class="checkbox" id="#GET{name}_#GET{val}" value="#GET{val}" aria-describedby="#GET{name}_explication" [(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
-			<label for="#GET{name}_#GET{val}"><:tri_par_rubrique:tri_articles_maj:></label>
-		</div>
-		<div class="choix">
-			#SET{val,'titre'}
-			<input type="radio" name="#GET{name}" class="checkbox" id="#GET{name}_#GET{val}" value="#GET{val}" aria-describedby="#GET{name}_explication" [(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
-			<label for="#GET{name}_#GET{val}"><:tri_par_rubrique:tri_articles_titre:></label>
-		</div>
-		<div class="choix">
-			#SET{val,'num titre'}
-			<input type="radio" name="#GET{name}" class="checkbox" id="#GET{name}_#GET{val}" value="#GET{val}" aria-describedby="#GET{name}_explication" [(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
-			<label for="#GET{name}_#GET{val}"><:tri_par_rubrique:tri_articles_num_titre:></label>
-		</div>
-		<div class="choix">
-			#SET{val,'id_article'}
-			<input type="radio" name="#GET{name}" class="checkbox" id="#GET{name}_#GET{val}" value="#GET{val}" aria-describedby="#GET{name}_explication" [(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
-			<label for="#GET{name}_#GET{val}"><:tri_par_rubrique:tri_articles_id_article:></label>
-		</div>
-		[(#PLUGIN{rang}|et{#VAL{articles}|in_array{#RANG_LISTE_OBJETS}})		
-		<div class="choix">
-			#SET{val,'rang'}
-			<input type="radio" name="#GET{name}" class="checkbox" id="#GET{name}_#GET{val}" value="#GET{val}" aria-describedby="#GET{name}_explication" [(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
-			<label for="#GET{name}_#GET{val}"><:tri_par_rubrique:tri_articles_rang:></label>
-		</div>
-		]
-		</div>
-	</div>	
+				
+	#SET{criteres,#VAL|tri_par_rubrique_criteres}
+	[(#SAISIE{radio, trirub_articles, label=<:tri_par_rubrique:tri_articles_par:>, data=#GET{criteres}, defaut=#CONFIG{tri_par_rubrique/trirub_articles,date}})]
+						
 	#SET{name,trirub_articles_inverse}
-	#SET{obli,''}
-	#SET{defaut,#CONFIG{tri_par_rubrique/trirub_articles_inverse,1}}
 	#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
-	<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">[
+	<div class="editer editer_[(#GET{name})][ (#GET{erreurs}|oui)erreur]">[
 		<span class='erreur_message'>(#GET{erreurs})</span>
 		]
 		<div class="choix">
 			#SET{val,0}
 			<input type="hidden" name="#GET{name}" value="#GET{val}" />
 			#SET{val,1}
-			<input type="checkbox" name="#GET{name}" class="checkbox" id="#GET{name}_#GET{val}" value="#GET{val}" [(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
+			<input type="checkbox" name="#GET{name}" class="checkbox" id="#GET{name}_#GET{val}" value="#GET{val}" [(#ENV{#GET{name},#CONFIG{tri_par_rubrique/trirub_articles_inverse,1}}|=={#GET{val}}|oui)checked="checked"] />
 			<label for="#GET{name}_#GET{val}"><:tri_par_rubrique:tri_sens_inverse:></label>
 		</div>
 	</div>
+							
 </div>
