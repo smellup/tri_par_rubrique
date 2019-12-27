@@ -66,18 +66,15 @@ function tri_par_rubrique_formulaire_traiter($flux) {
  */
 function tri_par_rubrique_affiche_milieu($flux) {
 
-	$e = trouver_objet_exec($flux['args']['exec']);
+	$exec = trouver_objet_exec($flux['args']['exec']);
 	$out = '';
-	if ($e['type'] == 'rubrique'
-		and $e['edition'] == false
-		and $id_rubrique = intval($flux['args']['id_rubrique'])) {
-
+	if (
+		$exec['type'] == 'rubrique'
+		and $exec['edition'] == false
+		and $id_rubrique = intval($flux['args']['id_rubrique'])
+	) {
 		$infos_tri = sql_fetsel('trirub_articles, trirub_articles_inverse', 'spip_rubriques', 'id_rubrique=' . intval($id_rubrique));
-
-		$tri = _T('tri_par_rubrique:tri_articles_' . $infos_tri['trirub_articles']);
-
 		$out .= recuperer_fond('prive/objets/inclure/tri-articles', $infos_tri);
-		//$out .= '<p>Tri des articles : '.$tri.($infos_tri['trirub_articles_inverse'] ? ' - inverse' : '').'</p>';
 	}
 
 	if ($out) {
@@ -87,5 +84,6 @@ function tri_par_rubrique_affiche_milieu($flux) {
 			$flux['data'] .= $out;
 		}
 	}
+	
 	return $flux;
 }
