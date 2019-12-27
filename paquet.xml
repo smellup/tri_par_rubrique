@@ -1,11 +1,11 @@
 <paquet
 	prefix="tri_par_rubrique"
 	categorie="navigation"
-	version="1.2.2"
+	version="1.2.3"
 	etat="test"
-	compatibilite="[3.2.0;3.2.*]"
+	compatibilite="[3.1.0;3.2.*]"
 	logo="prive/themes/spip/images/tri_par_rubrique-32.png"
-	documentation=""
+	documentation="https://contrib.spip.net/5181"
 	schema="1.0.0"
 >
 	<nom>Tri des articles par rubrique</nom>
@@ -15,7 +15,6 @@
 
 	<utilise nom="rang" />
 	
-	<pipeline nom="autoriser" inclure="tri_par_rubrique_autorisations.php"/>
 	<pipeline nom="declarer_tables_principales" inclure="tri_par_rubrique_administrations.php"/>
 	<pipeline nom="declarer_tables_objets_sql" inclure="tri_par_rubrique_administrations.php"/>
 
