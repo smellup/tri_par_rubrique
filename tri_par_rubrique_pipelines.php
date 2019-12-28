@@ -13,23 +13,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-/**
- * Afficher le formulaire pour choisir le mode de tri des articles sur les rubriques
- *
- * @param array $flux
- *
- * @return array
- */
-function tri_par_rubrique_formulaire_fond($flux) {
-	if ($flux['args']['form'] == 'editer_rubrique') {
-		$contexte = $flux['args']['contexte'];
-		$form = recuperer_fond('prive/objets/editer/rubrique-tri-articles', $contexte);
-		if ($p = strpos($flux['data'], '<!--extra-->')) {
-			$flux['data'] = substr_replace($flux['data'], $form, $p, 0);
-		}
-	}
-	return $flux;
-}
 
 /**
  * Traiter le formulaire de configuration
@@ -73,8 +56,12 @@ function tri_par_rubrique_affiche_milieu($flux) {
 		and $exec['edition'] == false
 		and $id_rubrique = intval($flux['args']['id_rubrique'])
 	) {
-		$infos_tri = sql_fetsel('trirub_articles, trirub_articles_inverse', 'spip_rubriques', 'id_rubrique=' . intval($id_rubrique));
-		$out .= recuperer_fond('prive/objets/inclure/tri-articles', $infos_tri);
+		$out = recuperer_fond(
+		'prive/objets/editer/tri_rubrique',
+			array(
+				'id_rubrique' => $id_rubrique
+			)
+		);
 	}
 
 	if ($out) {

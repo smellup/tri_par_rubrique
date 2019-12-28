@@ -6,19 +6,19 @@
 	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
 
 	<form method="post" action="#ENV{action}">
-	<div class="editer-groupe">
 		#ACTION_FORMULAIRE
 		
-		[(#SAISIE{case,appliquer_tri_global,label_case=<:tri_par_rubrique:appliquer_tri_global:/>})]
-		
+		<div class="editer-groupe">
+			[(#SAISIE{case,appliquer_tri_global,label_case=<:tri_par_rubrique:appliquer_tri_global:/>})]
+		</div>
+
 		<div class="js-tri-global">
-		<INCLURE{fond=prive/objets/editer/rubrique-tri-articles,titre=''}>
+			#INCLURE{fond=formulaires/inclure/inc-tri_rubrique_saisie, env}
 		</div>
 		
 		<p class="boutons">
 			<button type="submit" class="submit"><:bouton_enregistrer:></button>
 		</p>
-	</div>
 	</form>
 </div>
 

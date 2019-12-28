@@ -1,7 +1,7 @@
 <paquet
 	prefix="tri_par_rubrique"
 	categorie="navigation"
-	version="1.2.4"
+	version="1.2.5"
 	etat="stable"
 	compatibilite="[3.1.0;3.2.*]"
 	logo="prive/themes/spip/images/tri_par_rubrique-32.png"
@@ -19,7 +19,6 @@
 	<pipeline nom="declarer_tables_objets_sql" inclure="tri_par_rubrique_administrations.php"/>
 
 	<pipeline nom="formulaire_traiter" inclure="tri_par_rubrique_pipelines.php"/>
-	<pipeline nom="formulaire_fond"  inclure="tri_par_rubrique_pipelines.php" />
 	<pipeline nom="affiche_milieu"  inclure="tri_par_rubrique_pipelines.php" />
 
 </paquet>

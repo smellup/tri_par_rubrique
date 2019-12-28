@@ -1,12 +1,15 @@
 <div class="editer-groupe">
-				
 	#SET{criteres,#VAL|tri_par_rubrique_criteres}
-	[(#SAISIE{radio, trirub_articles, label=<:tri_par_rubrique:tri_articles_par:>, data=#GET{criteres}, defaut=#CONFIG{tri_par_rubrique/trirub_articles,date}})]
+	[(#SAISIE{radio, trirub_articles,
+		label=<:tri_par_rubrique:tri_articles_par:>,
+		data=#GET{criteres},
+		defaut=#CONFIG{tri_par_rubrique/trirub_articles,date}}
+	)]
 						
 	#SET{name,trirub_articles_inverse}
 	#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
 	<div class="editer editer_[(#GET{name})][ (#GET{erreurs}|oui)erreur]">[
-		<span class='erreur_message'>(#GET{erreurs})</span>
+		<span class="erreur_message">(#GET{erreurs})</span>
 		]
 		<div class="choix">
 			#SET{val,0}
@@ -16,5 +19,4 @@
 			<label for="#GET{name}_#GET{val}"><:tri_par_rubrique:tri_sens_inverse:></label>
 		</div>
 	</div>
-							
 </div>
