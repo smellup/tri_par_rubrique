@@ -109,12 +109,16 @@ function maj200_tri_par_rubrique($defaut_config) {
 	include_spip('inc/config');
 	$config = lire_config('tri_par_rubrique', array());
 
-	// Mise à jour de la configuration par défaut si il n'y a pas de configuration existante.
+	// Mise à jour de la configuration par défaut si il n'y a pas de configuration existante et suppression de la
+	// variable tri global devenue inutile.
 	if (!isset($config['trirub_articles'])) {
 		$config['trirub_articles'] = $defaut_config['trirub_articles'];
 	}
 	if (!isset($config['trirub_articles_inverse'])) {
 		$config['trirub_articles_inverse'] = $defaut_config['trirub_articles_inverse'];
+	}
+	if (isset($config['appliquer_tri_global'])) {
+		unset($config['appliquer_tri_global']);
 	}
 
 	ecrire_config('tri_par_rubrique', $config);
