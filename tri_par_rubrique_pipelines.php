@@ -15,18 +15,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 
 /**
- * Traiter le formulaire de configuration
- *
- * @param array $flux
- *
- * @return array
- */
-function tri_par_rubrique_formulaire_traiter($flux) {
-
-	return $flux;
-}
-
-/**
  * Afficher le mode de tri des articles sur les rubriques
  *
  * @param array $flux
