@@ -22,21 +22,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return array
  */
 function tri_par_rubrique_formulaire_traiter($flux) {
-	if ($flux['args']['form'] == 'configurer_tri_par_rubrique') {
-		if(_request('appliquer_tri_global') && _request('trirub_articles')) {
-			sql_updateq(
-				'spip_rubriques',
-				array(
-					'trirub_articles'         => _request('trirub_articles'),
-					'trirub_articles_inverse' => _request('trirub_articles_inverse'),
-				)
-			);
-			$flux['data']['message_ok'] = _T('tri_par_rubrique:tri_global_applique');
-		} else {
-			$flux['data']['message_ok'] = _T('tri_par_rubrique:aucun_changement');
-		}
-	}	
-	
+
 	return $flux;
 }
 

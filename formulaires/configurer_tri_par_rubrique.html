@@ -8,36 +8,10 @@
 	<form method="post" action="#ENV{action}">
 		#ACTION_FORMULAIRE
 		
-		<div class="editer-groupe">
-			[(#SAISIE{case,appliquer_tri_global,label_case=<:tri_par_rubrique:appliquer_tri_global:/>})]
-		</div>
+		#INCLURE{fond=formulaires/inclure/inc-tri_rubrique_saisie, env}
 
-		<div class="js-tri-global">
-			#INCLURE{fond=formulaires/inclure/inc-tri_rubrique_saisie, env}
-		</div>
-		
 		<p class="boutons">
 			<button type="submit" class="submit"><:bouton_enregistrer:></button>
 		</p>
 	</form>
 </div>
-
-<style type="text/css">
-	.js-tri-global {
-		display: none;
-	}
-</style>
-<script>
-	$(document).ready(function(){
-	    var $caseTri = $('#champ_appliquer_tri_global');
-	    var $jsTri = $('.js-tri-global');
-        $caseTri.on('click',function(){
-            $jsTri.toggle('fast');
-		});
-		if($caseTri.attr('checked')) {
-            $jsTri.show();
-		} else {
-            $jsTri.hide();
-		}
-	});
-</script>

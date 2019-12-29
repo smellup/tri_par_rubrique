@@ -1,12 +1,12 @@
 <paquet
 	prefix="tri_par_rubrique"
 	categorie="navigation"
-	version="1.2.5"
+	version="1.2.6"
 	etat="stable"
 	compatibilite="[3.1.0;3.2.*]"
 	logo="prive/themes/spip/images/tri_par_rubrique-32.png"
 	documentation="https://contrib.spip.net/5181"
-	schema="1.0.0"
+	schema="2.0.0"
 >
 	<nom>Tri des articles par rubrique</nom>
 

@@ -14,16 +14,15 @@ function formulaires_editer_tri_rubrique_charger($id_rubrique) {
 
 	$valeurs = array();
 	
-	// On passe au formulaire l'id de la rubrique, le titre, la liste des statuts d'article autorisés
-	// et une condition where qui est initialisée à '' par défaut.
-	// Ainsi, il est possible à un plugin de modifier le titre du bloc, la liste des statuts et le where pour
-	// influer sur le sélecteur d'articles.
+	// On passe au formulaire l'id de la rubrique.
 	$valeurs['id_rubrique'] = $id_rubrique;
 
 	// On détermine si un article est déjà sélectionné ou pas.
 	if ($infos_tri = sql_fetsel(array('trirub_articles', 'trirub_articles_inverse'), 'spip_rubriques', 'id_rubrique='.intval($id_rubrique))) {
 		$valeurs = array_merge($valeurs, $infos_tri);
 		$valeurs['editable'] = true;
+	} else {
+		$valeurs['editable'] = false;
 	}
 
 	return $valeurs;

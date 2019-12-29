@@ -3,7 +3,7 @@
 	[(#SAISIE{radio, trirub_articles,
 		label=<:tri_par_rubrique:tri_articles_par:>,
 		data=#GET{criteres},
-		defaut=#CONFIG{tri_par_rubrique/trirub_articles,date}}
+		defaut=#CONFIG{tri_par_rubrique/trirub_articles}}
 	)]
 						
 	#SET{name,trirub_articles_inverse}
@@ -15,7 +15,7 @@
 			#SET{val,0}
 			<input type="hidden" name="#GET{name}" value="#GET{val}" />
 			#SET{val,1}
-			<input type="checkbox" name="#GET{name}" class="checkbox" id="#GET{name}_#GET{val}" value="#GET{val}" [(#ENV{#GET{name},#CONFIG{tri_par_rubrique/trirub_articles_inverse,1}}|=={#GET{val}}|oui)checked="checked"] />
+			<input type="checkbox" name="#GET{name}" class="checkbox" id="#GET{name}_#GET{val}" value="#GET{val}" [(#ENV{#GET{name},#CONFIG{tri_par_rubrique/trirub_articles_inverse}}|=={#GET{val}}|oui)checked="checked"] />
 			<label for="#GET{name}_#GET{val}"><:tri_par_rubrique:tri_sens_inverse:></label>
 		</div>
 	</div>
