@@ -87,7 +87,6 @@ function calculer_tri_rubrique($id_rubrique, $collecte) {
 	return $expression_tri;
 }
 
-
 function tri_rubrique_champ($id_rubrique) {
 
 	// On initialise le champ à vide.
@@ -106,8 +105,6 @@ function tri_rubrique_champ($id_rubrique) {
 
 	return $champ;
 }
-
-
 
 function tri_rubrique_sens($id_rubrique) {
 

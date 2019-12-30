@@ -10,7 +10,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * @return array
  */
-function formulaires_editer_tri_rubrique_charger($id_rubrique) {
+function formulaires_editer_tri_rubrique_charger($id_rubrique, $redirect) {
 
 	$valeurs = array();
 	
@@ -35,7 +35,7 @@ function formulaires_editer_tri_rubrique_charger($id_rubrique) {
  *
   * @return array
  */
-function formulaires_editer_tri_rubrique_traiter($id_rubrique) {
+function formulaires_editer_tri_rubrique_traiter($id_rubrique, $redirect) {
 
 	$retour = array(
 		'message_ok' => '',
@@ -53,6 +53,10 @@ function formulaires_editer_tri_rubrique_traiter($id_rubrique) {
 			$update['trirub_articles'] = $tri;
 			$update['trirub_articles_inverse'] = $sens;
 			sql_updateq('spip_rubriques', $update, 'id_rubrique='.intval($id_rubrique));
+		}
+
+		if ($redirect) {
+			$retour['redirect'] = $redirect;
 		}
 	}
 
